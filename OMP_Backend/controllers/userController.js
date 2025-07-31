@@ -1,9 +1,10 @@
+// Import required modules and dependencies
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { sql, poolPromise } = require("../models/db");
 
-// Validation middleware
+// Validation middleware for user registration
 const validateUser = [
   body("username")
     .trim()
@@ -24,18 +25,21 @@ const validateUser = [
     .matches(/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/).withMessage("Password must contain a special character"),
 ];
 
+// Register a new user
 const registerUser = async (req, res) => {
+  // Validate request body
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(422).json({ errors: errors.array() });
   }
 
   const { username, email, password, role } = req.body;
-  const userRole = role || "customer";
+  const userRole = role || "customer"; // Default role is 'customer' if not provided
 
   try {
     const pool = await poolPromise;
 
+    // Check if user with given email or username already exists
     const checkUser = await pool
       .request()
       .input("email", sql.VarChar, email)
@@ -48,8 +52,10 @@ const registerUser = async (req, res) => {
         .json({ message: "User with this email or username already exists" });
     }
 
+    // Hash the password before storing
     const hashedPassword = await bcrypt.hash(password, 12);
 
+    // Insert new user into database
     await pool
       .request()
       .input("username", sql.VarChar, username)
@@ -62,27 +68,33 @@ const registerUser = async (req, res) => {
 
     return res.status(201).json({ message: "User created successfully" });
   } catch (error) {
+    // Log error and send server error response
     console.error("Error in registerUser:", error);
     return res.status(500).json({ message: "Server error" });
   }
 };
 
+// Login user and generate JWT token
 const loginUser = async (req, res) => {
   const { email, password } = req.body;
   try {
     const pool = await poolPromise;
+    // Fetch user by email
     const userResult = await pool
       .request()
       .input("email", sql.VarChar, email)
       .query("SELECT * FROM Users WHERE Email = @email");
 
     if (userResult.recordset.length === 0) {
+      // User not found
       return res.status(401).json({ message: "Invalid email or password" });
     }
 
     const user = userResult.recordset[0];
+    // Compare provided password with stored hash
     const isMatch = await bcrypt.compare(password, user.PasswordHash);
     if (!isMatch) {
+      // Password does not match
       return res.status(401).json({ message: "Invalid email or password" });
     }
 
@@ -90,6 +102,7 @@ const loginUser = async (req, res) => {
     const username = user.Username || user.UserName;
     const role = (user.Role || '').toLowerCase();
 
+    // Generate JWT token with user info
     const token = jwt.sign(
       {
         userId: user.UserID,
@@ -108,11 +121,13 @@ const loginUser = async (req, res) => {
       token
     });
   } catch (error) {
+    // Log error and send server error response
     console.error("Error in loginUser:", error);
     return res.status(500).json({ message: "Server error" });
   }
 };
 
+// Export controller functions and validation middleware
 module.exports = {
   validateUser,
   registerUser,
