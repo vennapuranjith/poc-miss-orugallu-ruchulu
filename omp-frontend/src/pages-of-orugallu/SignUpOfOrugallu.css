@@ -1,0 +1,161 @@
+/* SignUpOfOrugallu.css */
+
+.signup-wrapper {
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0; /* Remove extra padding */
+}
+
+.signup-form {
+  background-color: #FFF3E0;
+  padding: 12px 8px 10px 8px; /* Reduce padding */
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 300%;
+  max-width: 340px; /* Match this to .signup-section */
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup-section {
+  width: 100%;
+  max-width: 360px; /* Match this to .signup-form */
+  margin: 0 auto;
+  text-align: center;
+  background-color: #fffdf8;
+  border: 1px solid #e0d6c3;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 18px 12px 16px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup-heading {
+  font-size: 1.7rem;
+  font-family: 'Georgia', serif;
+  color: #4e342e;
+  margin-bottom: 10px;
+}
+
+.signup-form input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.75rem 0.75rem;
+  margin-bottom: 0.6rem; /* Reduce from 1rem to 0.6rem */
+  font-size: 1rem;
+  border: 1px solid #e0d6c3;
+  border-radius: 6px;
+  background: #f9f6f1;
+}
+
+.signup-form button {
+  background-color: #8bc34a;
+  color: white;
+  padding: 12px 24px;
+  font-weight: bold;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.signup-form button:hover {
+  background-color: #7cb342;
+}
+
+.signup-message {
+  margin-top: 15px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 14px;
+}
+
+.signup-message.success {
+  color: green;
+}
+
+.signup-message.error {
+  color: red;
+}
+
+/* Visually hidden class for screen readers only */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.error-text {
+  color: #d32f2f;
+  font-size: 0.875rem;
+  margin-top: -14px;
+  margin-bottom: 12px;
+  text-align: left;
+  font-weight: 600;
+  display: block;
+}
+
+.signup-form input[aria-invalid="true"] {
+  border-color: #d32f2f;
+  background-color: #fbe9e7;
+}
+
+/* Disabled button style */
+.signup-form button:disabled {
+  background-color: #a5d6a7;
+  cursor: not-allowed;
+}
+
+/* Add to your SignUpOfOrugallu.css or global CSS */
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem; /* Reduce gap between buttons */
+  margin-top: 1.2rem; /* Slightly less space above buttons */
+}
+
+/* Make inputs and buttons the same width */
+.signup-form input,
+.form-btn {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-btn {
+  padding: 0.75rem 0;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background: #ff9800;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.2s;
+}
+
+.form-btn:disabled {
+  background: #a5d6a7;
+  color: #fff;
+  cursor: not-allowed;
+}
+
+.back-btn {
+  background: #eee;
+  color: #333;
+  border: 1px solid #ccc;
+}

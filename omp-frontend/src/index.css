@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  background-color: #FFF8E1; /* beige background */
+  font-family: 'Segoe UI', sans-serif;
+  color: #2E2E2E; /* soft readable text */
+  overflow-x: hidden; /* prevent horizontal scroll */
+  overflow-y: auto;
+}
+
+body.auth-page {
+  overflow: hidden; /* on login/signup, disable scroll */
+}
+
+.navLogo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}

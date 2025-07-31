@@ -1,0 +1,38 @@
+.checkout-wrapper {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #fdf6ed;
+  border-radius: 12px;
+}
+
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.checkout-form input,
+.checkout-form textarea {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.checkout-form button {
+  background-color: #588157;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cart-summary {
+  margin-top: 20px;
+  background: #fff8f0;
+  padding: 10px;
+  border-radius: 10px;
+}

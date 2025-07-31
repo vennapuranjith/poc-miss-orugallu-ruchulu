@@ -1,0 +1,39 @@
+.center-loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 248, 225, 0.9); /* soft beige */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  backdrop-filter: blur(2px);
+}
+
+.center-loader-logo {
+  perspective: 1000px;
+  position: relative;
+}
+
+/* 🔁 Logo Spin: 6 spins/sec (360 * 6 = 2160 deg) */
+.center-loader-logo img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  animation: fastSpin 0.166s linear infinite;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes fastSpin {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(1780deg);
+  }
+}

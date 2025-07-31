@@ -1,0 +1,79 @@
+.home-wrapper {
+  background-color: #faf7f0;
+  padding: 60px 20px;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-section {
+  text-align: center;
+  background-color: #fffdf8;
+  border: 1px solid #e0d6c3;
+  border-radius: 12px;
+  padding: 40px;
+  max-width: 600px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.hero-heading {
+  font-size: 2rem;
+  font-family: 'Georgia', serif;
+  color: #4e342e;
+  margin-bottom: 16px;
+}
+
+.hero-subtext {
+  font-size: 1.1rem;
+  color: #5c5c5c;
+  margin-bottom: 24px;
+}
+
+.browse-button {
+  background-color: #8bc34a;
+  color: white;
+  padding: 12px 24px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.browse-button:hover {
+  background-color: #7cb342;
+}
+
+.admin-home-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+}
+
+.admin-home-center h2 {
+  margin-bottom: 1rem;
+}
+
+.admin-home-center p {
+  margin-bottom: 1.5rem;
+  max-width: 500px;
+  line-height: 1.6;
+}
+
+.admin-orders-link {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #d2691e;
+  text-decoration: none;
+  border: 1px solid #d2691e;
+  padding: 0.5rem 1.2rem;
+  border-radius: 5px;
+  transition: background 0.2s, color 0.2s;
+}
+.admin-orders-link:hover {
+  background: #d2691e;
+  color: #fff;
+}
